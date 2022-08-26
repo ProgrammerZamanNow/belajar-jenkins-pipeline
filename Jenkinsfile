@@ -7,9 +7,9 @@ pipeline {
     WEB = "https://www.programmerzamannow.com"
   }
 
-  triggers {
-    cron("*/5 * * * *")
-  }
+//  triggers {
+//    cron("*/5 * * * *")
+//  }
 
   parameters {
     string(name: "NAME", defaultValue: "Guest", description: "What is your name?")
@@ -107,6 +107,11 @@ pipeline {
     }
 
     stage("Deploy") {
+      input {
+        message "Can we deploy?"
+        ok "Yes, of course"
+        submitter "pzn,eko"
+      }
       agent {
         node {
           label "linux && java11"

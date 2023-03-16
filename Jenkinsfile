@@ -7,12 +7,18 @@ pipeline {
                 echo 'Hello Build 1'
                 echo 'Hello Build 2'
                 echo 'Hello Build 3'
+                script {
+                    for (int i = 0; i < 10; i++) {
+                        echo("Script ${i}")
+                    }
+                }
             }
         }
         stage('Test') {
             steps {
                 echo 'Hello Test'
             }
+            bat(mvn test)
         }
         stage('Deploy') {
             steps {

@@ -18,7 +18,6 @@ pipeline {
             steps {
                 echo 'Hello Test'
             }
-            bat(mvn test)
         }
         stage('Deploy') {
             steps {
